@@ -1,0 +1,228 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    --primary-color: #e7933f;
+    --text-color: #333;
+}
+
+html {
+    background-color: aqua;
+}
+
+.player {
+    position: relative;
+    margin: 100px auto 0;
+    background-color: rgb(227, 214, 95);
+    max-width: 500px;
+    box-shadow: 3px 0 5px 1px #4b3e3e;
+    border-radius: 20px;
+}
+
+header {
+    padding: 30px 0 30px;
+    text-align: center;
+
+}
+
+header h4 {
+    color: #333;
+    font-size: 12px;
+}
+
+header h2 {
+    color: var(--text-color);
+    font-size: 20px;
+}
+
+.cd {
+    display: flex;
+    margin: auto;
+    width: 250px;
+}
+
+.cd-thumb {
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 50%;
+    background-size: cover;
+    margin: auto;
+}
+
+.control {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 18px 0 8px 0;
+}
+
+.control .btn {
+    color: #4b3e3e;
+    width: 6px;
+    height: 6px;
+    padding: 18px;
+    font-size: 18px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.control .btn::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.control .btn:hover::before {
+    background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+.control .btn.active {
+    color: #fff;
+}
+
+.control .btn-toggle-play {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    font-size: 24px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--primary-color);
+    cursor: pointer;
+    border: 2px solid #f5f5f5;
+}
+
+
+.control .btn-toggle-play:hover,
+.control .btn-toggle-play:hover~.player.playing .icon-pause {
+    border: 2px solid #970746;
+    color: #970746;
+}
+
+.player .icon-pause {
+    display: none;
+}
+
+.player.playing .icon-pause {
+    display: inline-block;
+}
+
+.player.playing .icon-play {
+    display: none;
+}
+
+.playlist {
+    margin-top: 500px;
+    border-radius: 20px;
+    padding: 12px;
+}
+
+
+.song {
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px;
+    background-color: #fff;
+    padding: 8px 16px;
+    border-radius: 5px;
+    box-shadow: 0 0 3px 3px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.song:hover {
+    opacity: 0.9;
+}
+
+.song.active:hover {
+    opacity: 1;
+}
+
+.song.active {
+    position: relative;
+    background-color: var(--primary-color);
+}
+
+.song.active::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 5px;
+    background-color: rgba(255, 255, 255, 0.12);
+    /* Thay đổi thành màu phủ mong muốn */
+}
+
+.song .thumb {
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    background-size: cover;
+    margin: 0 8px;
+
+}
+
+.song .body {
+    flex: 1;
+    padding: 0 16px;
+}
+
+.song .title {
+    font-size: 18px;
+    color: #333;
+    margin: 0;
+}
+
+.song .author {
+    font-size: 12px;
+    color: #000;
+    margin: 0;
+}
+
+.song .option {
+    padding: 16px 8px;
+    color: #000;
+    font-size: 18px;
+}
+
+.song .name span {
+    font-size: 12px;
+    color: var(--text-color);
+}
+
+.song.active .title,
+.song.active .author,
+.song.active .option {
+    color: #fff;
+}
+
+#progress {
+    width: 90%;
+    height: 7px;
+    opacity: 0.6;
+    display: flex;
+    margin: auto;
+}
+
+.dashboard {
+    padding: 16px 16px 14px;
+    background: linear-gradient(180deg, #fff, #ea9f59);
+    top: 0;
+    width: 100%;
+    position: fixed;
+    max-width: 500px;
+    border-radius: 25px;
+    z-index: 1;
+    box-shadow: 2px 2px 5px 1px #4b3e3e;
+}
